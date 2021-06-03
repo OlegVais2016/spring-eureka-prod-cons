@@ -1,6 +1,7 @@
 package com.weisser.consumer.controller;
 
 import java.io.IOException;
+
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -15,12 +16,14 @@ public class ConsumerControllerClient {
 
         String baseUrl = "http://localhost:8080/employee";
         RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<String> response=null;
-        try{
-            response=restTemplate.exchange(baseUrl,
-                    HttpMethod.GET, getHeaders(),String.class);
-        }catch (Exception ex)
-        {
+        ResponseEntity<String> response = null;
+        try {
+            response = restTemplate.exchange(
+                    baseUrl,
+                    HttpMethod.GET,
+                    getHeaders(),
+                    String.class);
+        } catch (Exception ex) {
             System.out.println(ex);
         }
         System.out.println(response.getBody());
